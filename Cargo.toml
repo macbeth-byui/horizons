@@ -1,0 +1,26 @@
+[package]
+name = "horizons"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "horizons"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.12.4"}
+toml = "0.8.12"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = "0.4.38"
+console = "0.15.8"
+regex = "1.10.4"
+sqlx = { version = "0.7.4", features = ["postgres", "runtime-tokio"] }
+async-trait = "0.1.80"
+tokio = { version = "1.37.0", features = ["full"] }
+
