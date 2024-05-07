@@ -11,7 +11,7 @@ pub async fn json_api_get<T>(config : &Config, rel_url : &str) -> Result<Vec<T>,
     // println!("======================\n{}",rel_url);
     let client = reqwest::Client::new();
     let mut all_results = Vec::<T>::new();
-    let mut url = format!("{}/{}&per_page=200",config.general.server, rel_url);
+    let mut url = format!("{}/{}&per_page=100",config.general.server, rel_url);
     loop {
 
         // println!("{}",url);
@@ -27,6 +27,7 @@ pub async fn json_api_get<T>(config : &Config, rel_url : &str) -> Result<Vec<T>,
             .await
             .map_err(|e| err!(format!("API Response Parsing Failure\n{}",url),e))?;
         // println!("{}", data);
+        // println!("{:?}", headers);
         let results: Vec<T> = serde_json::from_str(&data)
         .map_err(|e| err!(format!("API JSON Conversion Failure\n{}",url),e))?;
         all_results.extend(results);

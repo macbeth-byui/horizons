@@ -5,7 +5,7 @@ use std::fs::File;
 use std::io::{BufReader, Read, BufWriter};
 use console::Term;
 use async_trait::async_trait;
-use chrono::prelude::{DateTime, Local};
+use chrono::prelude::Local;
 use crate::macros::err;
 
 #[derive(PartialEq, Eq, PartialOrd, Ord, Hash)]
